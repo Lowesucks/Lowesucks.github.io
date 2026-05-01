@@ -14,9 +14,24 @@
       margin: 0;
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #3b1028, #100814 70%);
       color: white;
       overflow-x: hidden;
+
+      background:
+        linear-gradient(rgba(16, 8, 20, 0.78), rgba(16, 8, 20, 0.9)),
+        url("fondo.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255, 100, 170, 0.25), transparent 55%);
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hearts {
@@ -24,7 +39,7 @@
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0;
+      z-index: 1;
     }
 
     .heart {
@@ -50,7 +65,7 @@
 
     .container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 850px;
       margin: auto;
       padding: 40px 20px;
@@ -58,12 +73,12 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(20, 8, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 28px;
       padding: 32px;
-      box-shadow: 0 0 40px rgba(255, 80, 150, 0.25);
-      backdrop-filter: blur(12px);
+      box-shadow: 0 0 45px rgba(255, 80, 150, 0.28);
+      backdrop-filter: blur(14px);
     }
 
     h1 {
@@ -72,12 +87,14 @@
     }
 
     .subtitle {
-      opacity: 0.85;
+      opacity: 0.9;
       font-size: 18px;
       margin-bottom: 28px;
     }
 
-    button {
+    button, .spotify-btn {
+      display: inline-block;
+      text-decoration: none;
       border: none;
       padding: 13px 22px;
       border-radius: 999px;
@@ -88,17 +105,23 @@
       cursor: pointer;
       box-shadow: 0 0 18px rgba(255, 143, 189, 0.5);
       transition: 0.2s;
+      margin: 6px;
     }
 
-    button:hover {
+    button:hover, .spotify-btn:hover {
       transform: scale(1.05);
+    }
+
+    .spotify-btn {
+      background: #1ed760;
+      color: #06140b;
     }
 
     .music-box {
       margin: 25px auto;
       padding: 18px;
-      max-width: 430px;
-      background: rgba(255,255,255,0.08);
+      max-width: 470px;
+      background: rgba(255,255,255,0.09);
       border-radius: 20px;
     }
 
@@ -112,7 +135,7 @@
       text-align: left;
       line-height: 1.8;
       font-size: 18px;
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.08);
       padding: 28px;
       border-radius: 24px;
     }
@@ -128,7 +151,7 @@
       margin-top: 25px;
       padding: 24px;
       border-radius: 22px;
-      background: rgba(255, 143, 189, 0.13);
+      background: rgba(255, 143, 189, 0.15);
       animation: fadeIn 1s ease forwards;
     }
 
@@ -146,7 +169,7 @@
     .signature {
       margin-top: 35px;
       font-size: 15px;
-      opacity: 0.75;
+      opacity: 0.78;
     }
 
     .date {
@@ -166,6 +189,7 @@
   <main class="container">
     <section class="card">
       <h1>Felices 4 meses mi amor</h1>
+
       <p class="subtitle">
         Hice esto para ti, porque aunque no pueda darte algo en persona,
         quería regalarte algo hecho por mí.
@@ -173,6 +197,15 @@
 
       <div class="music-box">
         <button onclick="playMusic()">Reproducir música 🎵</button>
+
+        <a 
+          class="spotify-btn" 
+          href="TU_LINK_DE_SPOTIFY_AQUI" 
+          target="_blank"
+        >
+          Abrir nuestra playlist 💚
+        </a>
+
         <p>Volumen</p>
         <input 
           type="range" 
@@ -229,7 +262,8 @@
         </p>
         <p>
           Y aunque esto sea solo una página, cada parte de ella la hice pensando en ti.
-          - Con mucho cariño, David
+          <br><br>
+          Con mucho cariño, David.
         </p>
       </div>
 
